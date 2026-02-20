@@ -3,19 +3,17 @@ package com.weg.projeto_cancela.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.Instant;
-
 @Document(collection = "historico")
 public class RegistroCancela {
     @Id
     private String id;
     private String evento;
-    private Instant data;
+    private String data;
 
     public RegistroCancela() {
     }
 
-    public RegistroCancela(String id, String evento, Instant data) {
+    public RegistroCancela(String id, String evento, String data) {
         this.id = id;
         this.evento = evento;
         this.data = data;
@@ -37,11 +35,11 @@ public class RegistroCancela {
         this.evento = evento;
     }
 
-    public Instant getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Instant data) {
+    public void setData(String data) {
         this.data = data;
     }
 }
