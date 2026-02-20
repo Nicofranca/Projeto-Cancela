@@ -1,5 +1,15 @@
 package com.weg.projeto_cancela.repository;
 
+import com.weg.projeto_cancela.model.RegistroCancela;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public class RegistroCancelaRepository {
+import java.util.List;
+
+@Repository
+public interface RegistroCancelaRepository extends MongoRepository<RegistroCancela, String> {
+
+    List<RegistroCancela> findByEvento(String evento);
+    long countByEvento(String evento);
+    List<RegistroCancela> findByEventoContainingIgnoreCase(String texto);
 }
